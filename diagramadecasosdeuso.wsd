@@ -1,0 +1,20 @@
+@startuml
+actor Administrador
+actor Cliente
+
+usecase "Registrar Cliente" as UC1
+usecase "Gestionar Pagos" as UC2
+usecase "Generar Factura" as UC3
+usecase "Renovar Membresia" as UC4
+usecase "Controlar Morosidad" as UC5
+usecase "Enviar Notificaciones" as UC6
+
+Administrador -- UC1
+Administrador -- UC2
+Administrador -- UC3
+Administrador -- UC5
+Administrador -- UC6
+
+Cliente -- UC4
+Cliente -- UC6
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+actor Cliente
+participant "Sistema de Gestión" as Sistema
+participant "Membresia"
+participant "Pago"
+participant "Factura"
+
+Cliente -> Sistema : solicitarRenovación()
+Sistema -> Membresia : buscarMembresia()
+Membresia -> Membresia : calcularCosto()
+Membresia --> Sistema : detalleMembresia()
+Sistema -> Pago : generarPago()
+Pago -> Factura : crearFactura()
+Pago --> Sistema : confirmaciónPago()
+Factura --> Sistema : confirmaciónFactura()
+Sistema -> Cliente : notificaciónRenovación()
+@enduml

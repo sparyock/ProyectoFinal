@@ -1,0 +1,61 @@
+class Cliente {
+  + id: int
+  + nombre: string
+  + direccion: string
+  + telefono: string
+  + email: string
+  + historialMedico: string
+  + registrarCliente()
+  + actualizarCliente()
+}
+
+class Membresia {
+  + id: int
+  + tipo: string
+  + fechaInicio: date
+  + fechaFin: date
+  + estado: string
+  + planPago: PlanDePago
+  + cliente: Cliente
+  + renovarMembresia()
+  + calcularDescuento()
+}
+
+class Pago {
+  + id: int
+  + fecha: date
+  + monto: float
+  + metodoPago: string
+  + membresia: Membresia
+  + generarFactura()
+}
+
+class Factura {
+  + id: int
+  + fecha: date
+  + monto: float
+  + detalle: string
+  + pago: Pago
+}
+
+class Notificacion {
+  + id: int
+  + fecha: date
+  + tipo: string
+  + mensaje: string
+  + cliente: Cliente
+  + enviarNotificacion()
+}
+
+class PlanDePago {
+  + id: int
+  + tipo: string
+  + costo: float
+  + duracion: int
+}
+
+Cliente "1" -- "0..*" Membresia
+Membresia "1" -- "0..*" Pago
+Pago "1" -- "1" Factura
+Cliente "1" -- "0..*" Notificacion
+Membresia "1" -- "1" PlanDePago
