@@ -1,3 +1,4 @@
+@startuml
 class Cliente {
   + id: int
   + nombre: string
@@ -54,8 +55,11 @@ class PlanDePago {
   + duracion: int
 }
 
-Cliente "1" -- "0..*" Membresia
-Membresia "1" -- "0..*" Pago
-Pago "1" -- "1" Factura
-Cliente "1" -- "0..*" Notificacion
-Membresia "1" -- "1" PlanDePago
+' Relaciones entre las clases
+Cliente -- Membresia
+Membresia *-- Pago
+Pago *-- Factura
+Cliente o-- Notificacion
+Membresia o-- PlanDePago
+
+@enduml
